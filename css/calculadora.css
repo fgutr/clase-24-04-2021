@@ -1,0 +1,10 @@
+#resultado {
+    height: 50px;
+    font-size: 20px;
+    background-color: #000;
+    color:#fff;
+    border: none;
+    margin-bottom: 10px;
+    text-align: right;
+    padding: 10px;
+}

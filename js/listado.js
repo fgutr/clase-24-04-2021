@@ -63,6 +63,26 @@ function cargaInicial(){
             tr.appendChild(td)
         });
         body.appendChild(tr)
+        document.getElementById(`${contador}`).addEventListener("click",function(e){
+            console.log(e.target.id)
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "Ya no se puede revertir!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminalo!',
+                cancelButtonText: 'Cancelar'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  var d = JSON.parse(localStorage.getItem("datos"))
+                  d.splice(e.target.id,1)  
+                  localStorage.setItem("datos",JSON.stringify(d))
+                  location.reload()
+                }
+            })
+        })
         contador++
     }
 }

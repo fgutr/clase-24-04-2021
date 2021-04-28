@@ -10,6 +10,7 @@ function Guardar(){
         cancelButtonText: 'NO',
       }).then((result) => {
         if (result.isConfirmed) {
+          var datos = JSON.parse(localStorage.getItem("datos"))
           if (!datos) {
             localStorage.setItem("datos",JSON.stringify([]))
           }
@@ -18,7 +19,7 @@ function Guardar(){
           var correo = document.getElementById("correo").value
           var celular = document.getElementById("celular").value
 
-          var datos = JSON.parse(localStorage.getItem("datos"))
+          
 
           var obj = {
               nombres:nombres,
@@ -28,6 +29,7 @@ function Guardar(){
           }
 
           datos.push(obj)
+          console.log(datos);
           localStorage.setItem("datos",JSON.stringify(datos))
           Swal.fire({
             title: 'Usuario guardado exitosamente',
